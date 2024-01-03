@@ -13,7 +13,7 @@ const form = document.querySelector(".js_form");
 //DATOS
 
 let characters = [];
-let charactersFavorites = [];
+const charactersFavorites = [];
 
 //FUNCIONES
 
@@ -23,41 +23,59 @@ function getImageUrl(characterData) {
   }
   return "https://via.placeholder.com/210x295/flo/905/?text=Disney";
 }
+
 function renderOne(characterData) {
   const imageUrl = getImageUrl(characterData);
   charactersList.innerHTML += `
-    <li class="characters__li">
+    <li class="characters__li js_character data-id="${characterData.id}">
       <img src="${imageUrl}" class="characters__img" alt="${characterData.name}">
       <h4 class="characters__name">${characterData.name}</h4>
     </li>`;
 }
 
-function renderFavorite(characterData) {
+function renderOneFavorite(characterData) {
   const imageUrl = getImageUrl(characterData);
   charactersListFavorites.innerHTML += `
-    <li class="characters__li">
-      <img src="${imageUrl}" class="characters__img" alt="${characterData.name}">
+  <li class="characters__li js_character data-id="${characterData.id}">
+  <img src="${imageUrl}" class="characters__img" alt="${characterData.name}">
       <h4 class="characters__name">${characterData.name}</h4>
     </li>`;
 }
 
-function handleFavorite(event) {
-  const clickedCharacter = event.currentTarget;
-  clickedCharacter.classList.toggle("favorites");
-  const selectedCharacter = characters.find(
-    (oneCharacter) => oneCharacter.id === clickedCharacter.dataset.id
-  );
-  charactersListFavorites.innerHTML += `
-        <li class="characters__li">
-          <img src="${selectedCharacter.imageUrl}" class="characters__img" alt="${selectedCharacter.name}">
-          <h4 class="characters__name">${selectedCharacter.name}</h4>
-        </li>`;
+function renderFavorites() {
+  charactersListFavorites.innerHTML = "";
+
+  for (const characterFavorite of charactersFavorites) {
+    renderOneFavorite(characterFavorite);
+  }
 }
 
 function renderAll() {
   for (const character of characters) {
     renderOne(character);
   }
+  const allCharacters = document.querySelectorAll(".js_character");
+  for (const characterLi of allCharacters)
+    characterLi.addEventListener("click", handleFavorite);
+}
+
+function handleFavorite(event) {
+  const clickedCharacter = event.currentTarget;
+  const clickedCharacterId = clickedCharacter.dataset.id;
+  const selectedCharacter = characters.find(
+    (oneCharacter) => oneCharacter.id === clickedCharacter.dataset.id
+  );
+  const favoriteCharacter = charactersFavorites.findIndex(
+    (oneCharacter) => oneCharacter.id === clickedCharacterId
+  );
+  if (favoriteCharacter === -1) {
+    charactersFavorites.push(selectedCharacter);
+  } else {
+    charactersFavorites.splice(favoriteCharacter, 1);
+  }
+  renderFavorites();
+
+  clickedCharacter.classList.toggle("favorites");
 }
 
 // EVENTOS
