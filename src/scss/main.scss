@@ -51,3 +51,33 @@
     padding: 5px;
   }
 }
+
+.favorites {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 15px;
+  &__title {
+    padding: 15px;
+  }
+  &__li {
+    background-color: gray;
+    width: 250px;
+    height: 310px;
+    list-style-type: none;
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+  &__name {
+    color: black;
+    padding: 5px;
+  }
+  &__img {
+    width: 210px;
+    height: 240px;
+    padding: 5px;
+  }
+}
