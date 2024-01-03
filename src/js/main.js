@@ -24,7 +24,8 @@ let characters = [
 ];
 
 function renderOne(charactersData) {
-  charactersList.innerHTML += `<h3>${charactersData.name}</h3>`;
+  charactersList.innerHTML += `<ul><li><h3 class="characters__name">${charactersData.name}</h3>
+    <img src="${charactersData.imageUrl}" class="characters__img" alt="${charactersData.name}"></li></ul>`;
 }
 
 renderOne(characters[0]);
