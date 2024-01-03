@@ -15,12 +15,18 @@
   <header class="header">
     <form class="header__form js_form">
       <input class="js_inputSearch" type="text" id="busqueda" name="q" placeholder="Example: Olu Mel" required>
-      <button type="submit js_btnSearch">Search</button>
+      <button class="header__btn" type="submit">Search</button>
     </form>
   </header>
   <section class="favorites">
     <h1 class="favorites__title"> Favorites ❤</h1>
-    <ul class="js_charactersListFavorites"></ul>
+    <ul class="js_charactersListFavorites">
+      <li class="favorites__li">
+        <img src="https://static.wikia.nocookie.net/disney/images/b/bf/Char_79257.jpg" class="characters__img" alt="">
+        <h4 class="characters__name">Lion</h4>
+        <button class="favorites__btn js_btnRemove">Eliminar favorito</button>
+      </li>
+    </ul>
   </section>
   <section class="characters">
     <h1 class="characters__title"> Characters ❤</h1>
