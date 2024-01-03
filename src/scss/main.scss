@@ -18,20 +18,36 @@
   align-items: center;
   gap: 5px;
   padding: 10px;
-  background-color: white;
+  background-color: grey;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 .characters {
   display: flex;
   flex-direction: column;
+  align-items: center; /* Centrar horizontalmente */
+  justify-content: center; /* Centrar verticalmente */
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
+  padding: 15px;
+  &__title {
+    padding: 15px;
+  }
+  &__li {
+    background-color: gray;
+    width: 250px;
+    height: 250px;
+    list-style-type: none;
+    padding: 15px;
+    margin-bottom: 15px;
+  }
   &__name {
-    color: orangered;
+    color: black;
+    padding: 5px;
   }
   &__img {
     width: 200px;
-    height: 200px;
+    height: 180px;
+    padding: 5px;
   }
 }
