@@ -22,7 +22,7 @@ let charactersFavorites = [];
 function renderOne(characterData) {
   const imageUrl =
     characterData.imageUrl ||
-    "https://via.placeholder.com/210x295/flo/905/?text=Disney";
+    "https://via.placeholder.com/210x295/ff9e06/ff46e1/?text=Disney";
   charactersList.innerHTML += `
   <li class="characters__li js_character data-id="${characterData._id}">
     <img src="${imageUrl}" class="characters__img" alt="${characterData.name}">
@@ -47,7 +47,7 @@ function renderAll() {
 function renderOneFavorite(characterData) {
   const imageUrl =
     characterData.imageUrl ||
-    `https://via.placeholder.com/210x295/flo/905/?text=Disney`;
+    `https://via.placeholder.com/210x295/ff9e06/ff46e1/?text=Disney`;
   charactersListFavorites.innerHTML += `
   <li class="characters__li js_character">
     <img src="${imageUrl}" class="characters__img" alt="${characterData.name}">
@@ -103,6 +103,8 @@ form.addEventListener("submit", (event) => {
       }
     });
 });
+
+//botón eliminar favorito
 
 btnRemove.addEventListener("click", (event) => {
   charactersListFavorites.classList.remove("favorites__li");

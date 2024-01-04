@@ -2,25 +2,31 @@
 @import "core/reset";
 
 .header {
-  height: 500px;
+  background: linear-gradient(to right, #ff9e06, #ff99ee);
+  height: 300px;
   width: 100%;
-  background-image: url("https://ogimg.infoglobo.com.br/in/25161878-97c-45c/FT1086A/Personagens-DisneyRoupa-50-anos.png");
+  // background-image: url("");
   background-size: cover;
-  position: relative;
-  &__form {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 10px;
-    background-color: grey;
-    font-family: Arial, Helvetica, sans-serif;
-  }
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
   &__btn {
-    background-color: orange;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 0cap;
+    margin: 0;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+    background-color: #ff9e06;
+    border-radius: 5px;
+    width: 70px;
+    height: 20px;
   }
 }
 
@@ -32,25 +38,40 @@
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   padding: 15px;
+
   &__title {
     padding: 15px;
+    color: #ff9e06;
   }
+
   &__li {
-    background-color: rgba(172, 255, 47, 0.809);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
     width: 250px;
     height: 310px;
     list-style-type: none;
     padding: 15px;
     margin-bottom: 15px;
+    background-color: #ff99ee;
   }
+
   &__name {
-    color: black;
+    background-color: #ff9e06;
+    color: rgb(62, 62, 62);
     padding: 5px;
+    border-radius: 10px;
+    width: 200px;
+    margin-top: auto;
   }
+
   &__img {
     width: 210px;
     height: 240px;
     padding: 5px;
+    border-radius: 10px;
   }
 }
 
@@ -64,22 +85,59 @@
   padding: 15px;
   &__title {
     padding: 15px;
+    color: #ff9e06;
+    // #ff46e1;
   }
   &__li {
-    background-color: orange;
+    background-color: #ff99ee;
     width: 250px;
     height: 330px;
     list-style-type: none;
     padding: 15px;
     margin-bottom: 15px;
+    border-radius: 10px;
   }
   &__name {
-    color: black;
+    color: rgb(67, 65, 65);
     padding: 5px;
   }
   &__img {
     width: 210px;
     height: 240px;
     padding: 5px;
+  }
+
+  &__btn {
+    border-radius: 5px;
+    width: 150px;
+    height: 27px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 0cap;
+    margin: 0;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+    background-color: #ff9e06;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+}
+
+@media (min-width: 768px) {
+  .characters {
+    &__ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .characters {
+    &__ul {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
   }
 }
