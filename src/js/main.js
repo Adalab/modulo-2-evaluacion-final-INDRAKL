@@ -8,12 +8,11 @@ const charactersListFavorites = document.querySelector(
 );
 const inputSearch = document.querySelector(".js_inputSearch");
 const form = document.querySelector(".js_form");
-const btnRemove = document.querySelector(".js_btnRemove");
 
 //DATOS
 
 let characters = [];
-let charactersFavorites = [];
+const charactersFavorites = [];
 
 //FUNCIONES
 
@@ -24,7 +23,7 @@ function renderOne(characterData) {
     characterData.imageUrl ||
     "https://via.placeholder.com/210x295/ff9e06/ff46e1/?text=Disney";
   charactersList.innerHTML += `
-  <li class="characters__li js_character data-id="${characterData._id}">
+  <li class="characters__li js_character" data-id="${characterData._id}">
     <img src="${imageUrl}" class="characters__img" alt="${characterData.name}">
     <h4 class="characters__name">${characterData.name}</h4>
   </li>`;
@@ -51,7 +50,8 @@ function renderOneFavorite(characterData) {
   charactersListFavorites.innerHTML += `
   <li class="characters__li js_character">
     <img src="${imageUrl}" class="characters__img" alt="${characterData.name}">
-    <h4 class="characters__name">${characterData.name}</h4>
+    <h4 class="favorites__name">${characterData.name}</h4>
+    <button class="favorites__btn js_btnRemove">Eliminar favorito</button>
   </li>`;
 }
 
@@ -69,8 +69,9 @@ function renderFavorites() {
 function handlefavorites(event) {
   const clickedCharacterLi = event.currentTarget;
   const clickedCharacterId = clickedCharacterLi.dataset.id;
+  console.log(clickedCharacterId);
   const selectedCharacter = characters.find(
-    (oneCharacter) => oneCharacter._id === parseInt(clickedCharacterId)
+    (oneCharacters) => oneCharacters._id === parseInt(clickedCharacterId)
   );
   const favoritesCharacterIndex = charactersFavorites.findIndex(
     (onefavorite) => onefavorite._id === parseInt(clickedCharacterId)
@@ -86,6 +87,11 @@ function handlefavorites(event) {
   }
   renderFavorites();
   clickedCharacterLi.classList.toggle("favorites");
+
+  // const btnRemove = document.querySelector(".js_btnRemove");
+  // btnRemove.addEventListener("click", (event) => {
+  //   charactersListFavorites.classList.remove("favorites__li");
+  // });
 }
 
 // EVENTOS
@@ -105,11 +111,6 @@ form.addEventListener("submit", (event) => {
 });
 
 //botón eliminar favorito
-
-btnRemove.addEventListener("click", (event) => {
-  charactersListFavorites.classList.remove("favorites__li");
-  charactersListFavorites.innerHTML = "";
-});
 
 //CÓDIGO QUE SE EJECUTA AL CARGAR LA PÁGINA
 

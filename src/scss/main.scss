@@ -3,11 +3,12 @@
 
 .header {
   background: linear-gradient(to right, #ff9e06, #ff99ee);
-  height: 300px;
+  background-size: contain;
+  height: 100vh;
+  display: flex;
   width: 100%;
-  // background-image: url("");
-  background-size: cover;
-  font-family: Arial, Helvetica, sans-serif;
+  align-items: center;
+  justify-content: center;
 }
 
 .form {
@@ -27,6 +28,7 @@
     border-radius: 5px;
     width: 70px;
     height: 20px;
+    color: rgb(62, 62, 62);
   }
 }
 
@@ -121,11 +123,19 @@
     cursor: pointer;
     background-color: #ff9e06;
     font-family: Arial, Helvetica, sans-serif;
+    color: rgb(62, 62, 62);
   }
 }
 
 @media (min-width: 768px) {
   .characters {
+    &__ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+  }
+  .favorites {
     &__ul {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -138,6 +148,11 @@
   .characters {
     &__ul {
       grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+  .favorites {
+    &__ul {
+      grid-template-columns: 1fr 1fr 1fr;
     }
   }
 }
