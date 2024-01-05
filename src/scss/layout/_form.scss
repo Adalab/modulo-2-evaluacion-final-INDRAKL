@@ -1,0 +1,22 @@
+.form {
+  display: flex;
+  margin-top: 80px;
+  justify-content: center;
+  height: 30px;
+  gap: 5px;
+  &__btn {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 0cap;
+    margin: 0;
+    padding: 0;
+    background: none;
+    background-color: #ff9e06;
+    border-radius: 5px;
+    width: 70px;
+    height: 20px;
+    color: rgb(62, 62, 62);
+    height: 30px;
+  }
+}

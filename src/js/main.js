@@ -22,16 +22,29 @@ function renderOne(characterData) {
   const imageUrl =
     characterData.imageUrl ||
     "https://via.placeholder.com/210x295/ff9e06/ff46e1/?text=Disney";
-  charactersList.innerHTML += `
-  <li class="characters__li js_character" data-id="${characterData._id}">
-    <img src="${imageUrl}" class="characters__img" alt="${characterData.name}">
-    <h4 class="characters__name">${characterData.name}</h4>
-  </li>`;
+
+  const favoritesCharacterIndex = charactersFavorites.findIndex(
+    (onefavorite) => onefavorite._id === parseInt(characterData._id)
+  );
+
+  if (favoritesCharacterIndex === -1) {
+    charactersList.innerHTML += `
+    <li class="characters__li js_character" data-id="${characterData._id}">
+      <img src="${imageUrl}" class="characters__img" alt="${characterData.name}">
+      <h4 class="characters__name">${characterData.name}</h4>
+    </li>`;
+  } else {
+    charactersList.innerHTML += `
+    <li class="favorites__li js_character" data-id="${characterData._id}">
+      <img src="${imageUrl}" class="characters__img" alt="${characterData.name}">
+      <h4 class="characters__name">${characterData.name}</h4>
+    </li>`;
+  }
 }
 
 //pintar todos
 
-function renderAll() {
+function renderAll(data) {
   for (const character of characters) {
     renderOne(character);
   }
@@ -48,11 +61,22 @@ function renderOneFavorite(characterData) {
     characterData.imageUrl ||
     `https://via.placeholder.com/210x295/ff9e06/ff46e1/?text=Disney`;
   charactersListFavorites.innerHTML += `
-  <li class="characters__li js_character">
+  <li class="favorites__li js_character">
     <img src="${imageUrl}" class="characters__img" alt="${characterData.name}">
     <h4 class="favorites__name">${characterData.name}</h4>
     <button class="favorites__btn js_btnRemove">Eliminar favorito</button>
   </li>`;
+  // const btnRemove = document.querySelectorAll(".js_btnRemove");
+  // btnRemove.addEventListener("click", (event) => {
+  //   const clickedCharacterId = clickedCharacterLi.dataset.id;
+  //   const favoritesCharacterIndex = charactersFavorites.findIndex(
+  //     (onefavorite) => onefavorite._id === parseInt(clickedCharacterId)
+  //   );
+  //   if (favoritesCharacterIndex !== -1) {
+  //     charactersFavorites.splice(favoritesCharacterIndex, 1);
+  //     renderFavorites();
+  //   }
+  // });
 }
 
 //pintar todos los favoritos
@@ -77,21 +101,13 @@ function handlefavorites(event) {
     (onefavorite) => onefavorite._id === parseInt(clickedCharacterId)
   );
   if (favoritesCharacterIndex === -1) {
-    //No esta en el array de favoritos. Lo pongo!
-
     charactersFavorites.push(selectedCharacter);
   } else {
-    // La quito!!
-
     charactersFavorites.splice(favoritesCharacterIndex, 1);
   }
   renderFavorites();
-  clickedCharacterLi.classList.toggle("favorites");
-
-  // const btnRemove = document.querySelector(".js_btnRemove");
-  // btnRemove.addEventListener("click", (event) => {
-  //   charactersListFavorites.classList.remove("favorites__li");
-  // });
+  clickedCharacterLi.classList.toggle("favorites__li");
+  clickedCharacterLi.classList.toggle("characters__li");
 }
 
 // EVENTOS
@@ -101,16 +117,10 @@ form.addEventListener("submit", (event) => {
   fetch(`//api.disneyapi.dev/character?name=${inputSearch.value}`)
     .then((response) => response.json())
     .then((data) => {
-      const searchResults = data.data;
       charactersList.innerHTML = "";
-      charactersListFavorites.innerHTML = "";
-      for (const result of searchResults) {
-        renderOne(result);
-      }
+      renderAll();
     });
 });
-
-//botón eliminar favorito
 
 //CÓDIGO QUE SE EJECUTA AL CARGAR LA PÁGINA
 

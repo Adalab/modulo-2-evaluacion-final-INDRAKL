@@ -1,0 +1,29 @@
+@media (min-width: 768px) {
+  .characters {
+    &__ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+  }
+  .favorites {
+    &__ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .characters {
+    &__ul {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+  .favorites {
+    &__ul {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+}
