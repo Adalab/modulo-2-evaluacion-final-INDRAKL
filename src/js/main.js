@@ -12,7 +12,7 @@ const form = document.querySelector(".js_form");
 //DATOS
 
 let characters = [];
-const charactersFavorites = [];
+const charactersFavorites = JSON.parse(localStorage.getItem("f")) || [];
 
 //FUNCIONES
 
@@ -56,28 +56,29 @@ function renderAll(data) {
 
 //pintar un favorito
 
-function renderOneFavorite(characterData) {
+function renderOneFavorite(favoriteData) {
   const imageUrl =
-    characterData.imageUrl ||
+    favoriteData.imageUrl ||
     `https://via.placeholder.com/210x295/ff9e06/ff46e1/?text=Disney`;
   charactersListFavorites.innerHTML += `
   <li class="favorites__li js_character">
-    <img src="${imageUrl}" class="characters__img" alt="${characterData.name}">
-    <h4 class="favorites__name">${characterData.name}</h4>
+    <img src="${imageUrl}" class="characters__img" alt="${favoriteData.name}">
+    <h4 class="favorites__name">${favoriteData.name}</h4>
     <button class="favorites__btn js_btnRemove">Eliminar favorito</button>
   </li>`;
-  // const btnRemove = document.querySelectorAll(".js_btnRemove");
-  // btnRemove.addEventListener("click", (event) => {
-  //   const clickedCharacterId = clickedCharacterLi.dataset.id;
-  //   const favoritesCharacterIndex = charactersFavorites.findIndex(
-  //     (onefavorite) => onefavorite._id === parseInt(clickedCharacterId)
-  //   );
-  //   if (favoritesCharacterIndex !== -1) {
-  //     charactersFavorites.splice(favoritesCharacterIndex, 1);
-  //     renderFavorites();
-  //   }
-  // });
 }
+
+// const btnRemove = document.querySelectorAll(".js_btnRemove");
+// btnRemove.addEventListener("click", (event) => {
+//   const clickedCharacterId = clickedCharacterLi.dataset.id;
+//   const favoritesCharacterIndex = charactersFavorites.findIndex(
+//     (onefavorite) => onefavorite._id === parseInt(clickedCharacterId)
+//   );
+//   if (favoritesCharacterIndex !== -1) {
+//     charactersFavorites.splice(favoritesCharacterIndex, 1);
+//     renderFavorites();
+//   }
+// });
 
 //pintar todos los favoritos
 
@@ -93,17 +94,18 @@ function renderFavorites() {
 function handlefavorites(event) {
   const clickedCharacterLi = event.currentTarget;
   const clickedCharacterId = clickedCharacterLi.dataset.id;
-  console.log(clickedCharacterId);
   const selectedCharacter = characters.find(
-    (oneCharacters) => oneCharacters._id === parseInt(clickedCharacterId)
+    (oneCharacter) => oneCharacter._id === parseInt(clickedCharacterId)
   );
   const favoritesCharacterIndex = charactersFavorites.findIndex(
     (onefavorite) => onefavorite._id === parseInt(clickedCharacterId)
   );
   if (favoritesCharacterIndex === -1) {
     charactersFavorites.push(selectedCharacter);
+    localStorage.setItem("f", JSON.stringify(charactersFavorites));
   } else {
     charactersFavorites.splice(favoritesCharacterIndex, 1);
+    localStorage.setItem("f", JSON.stringify(charactersFavorites));
   }
   renderFavorites();
   clickedCharacterLi.classList.toggle("favorites__li");
@@ -117,6 +119,7 @@ form.addEventListener("submit", (event) => {
   fetch(`//api.disneyapi.dev/character?name=${inputSearch.value}`)
     .then((response) => response.json())
     .then((data) => {
+      characters = data.data;
       charactersList.innerHTML = "";
       renderAll();
     });
@@ -128,5 +131,6 @@ fetch("//api.disneyapi.dev/character?pageSize=50")
   .then((response) => response.json())
   .then((data) => {
     characters = data.data;
+    renderFavorites();
     renderAll();
   });
