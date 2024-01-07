@@ -29,7 +29,7 @@
   }
   &__name {
     background-color: $pink;
-    color: rgb(62, 62, 62);
+    color: $grey;
     padding: 5px;
     border-radius: 10px;
     width: 200px;
@@ -55,7 +55,7 @@
     cursor: pointer;
     background-color: white;
     font-family: $main-font;
-    color: rgb(62, 62, 62);
+    color: $grey;
     margin-top: 10px;
   }
 }
