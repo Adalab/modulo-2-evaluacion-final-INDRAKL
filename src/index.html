@@ -1,19 +1,37 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Adalab Web Starter Kit</title>
+  <title>EVALUCIÓN FINAL MÓDULO2 INDRA KISLO</title>
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./scss/main.scss" />
-  <link rel="icon" href="./images/favicon" />
+  <link rel="icon" href="./images/favicon.png" />
 </head>
 
 <body>
 
+  <header class="header">
+    <h1 class="header__text">PERSONAJES DISNEY </h1>
+  </header>
 
-  </div>
+
+  <form class="form js_form">
+    <input class="form__btn__search  js_inputSearch" type="text" id="busqueda" name=""
+      placeholder="Ejemplo: Cinderella">
+    <button class="form__btn" type="submit">BUSCA</button>
+  </form>
+
+  <section class="favorites">
+    <h1 class="favorites__title"> Favorites ❤</h1>
+    <ul class="favorites__ul js_charactersListFavorites">
+    </ul>
+  </section>
+  <section class="characters">
+    <h1 class="characters__title"> Characters ❤</h1>
+    <ul class="characters__ul js_charactersList"></ul>
+  </section>
   <script src="./js/main.js"></script>
 </body>
 
