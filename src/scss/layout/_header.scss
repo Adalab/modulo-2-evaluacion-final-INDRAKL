@@ -1,6 +1,21 @@
-// .header {
-//   position: relative;
-//   // background: linear-gradient(to right, #ff9e06, #ff99ee);
-//   background-image: url("./images/header.jpg");
-//   height: 100vh;
-// }
+.header {
+  background-image: url("https://i.pinimg.com/originals/20/0f/dc/200fdcb1737a2e324c18ab05820e77e4.jpg");
+  height: 500px;
+  width: 100%;
+  text-align: center;
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $orange;
+    font-size: 30px;
+    font-family: $main-font;
+    border: solid 5px $pink;
+    background-color: rgba(240, 240, 240, 0.8);
+    bottom: 200px;
+    position: absolute;
+    margin: 30px;
+    padding: 10px;
+  }
+}

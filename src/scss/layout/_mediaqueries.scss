@@ -1,4 +1,16 @@
 @media (min-width: 768px) {
+  .header {
+    height: 550px;
+    display: flex;
+
+    &__text {
+      display: flex;
+      text-align: center;
+      font-size: 50px;
+      bottom: 260px;
+    }
+  }
+
   .characters {
     &__ul {
       display: grid;
@@ -15,7 +27,13 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
+  .header {
+    &__text {
+      font-size: 70px;
+    }
+  }
+
   .characters {
     &__ul {
       grid-template-columns: 1fr 1fr 1fr 1fr;

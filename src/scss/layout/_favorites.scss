@@ -4,15 +4,15 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: $main-font;
   padding: 15px;
 
   &__title {
     padding: 15px;
-    color: #ff99ee;
+    color: $pink;
   }
   &__li {
-    background-color: #ff9e06;
+    background-color: $orange;
     width: 250px;
     height: 350px;
     list-style-type: none;
@@ -28,7 +28,7 @@
     margin-bottom: 15px;
   }
   &__name {
-    background-color: #ff99ee;
+    background-color: $pink;
     color: rgb(62, 62, 62);
     padding: 5px;
     border-radius: 10px;
@@ -54,7 +54,7 @@
     background: none;
     cursor: pointer;
     background-color: white;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: $main-font;
     color: rgb(62, 62, 62);
     margin-top: 10px;
   }

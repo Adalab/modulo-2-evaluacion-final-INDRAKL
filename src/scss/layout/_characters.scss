@@ -4,12 +4,12 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: $main-font;
   padding: 15px;
 
   &__title {
     padding: 15px;
-    color: #ff9e06;
+    color: $orange;
   }
 
   &__li {
@@ -23,11 +23,11 @@
     list-style-type: none;
     padding: 15px;
     margin-bottom: 15px;
-    background-color: #ff99ee;
+    background-color: $pink;
   }
 
   &__name {
-    background-color: #ff9e06;
+    background-color: $orange;
     color: rgb(62, 62, 62);
     padding: 5px;
     border-radius: 10px;

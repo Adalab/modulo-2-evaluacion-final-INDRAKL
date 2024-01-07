@@ -8,6 +8,7 @@ const charactersListFavorites = document.querySelector(
 );
 const inputSearch = document.querySelector(".js_inputSearch");
 const form = document.querySelector(".js_form");
+const btnRemoveList = document.querySelectorAll(".js_btnRemove");
 
 //DATOS
 
@@ -16,7 +17,10 @@ const charactersFavorites = JSON.parse(localStorage.getItem("f")) || [];
 
 //FUNCIONES
 
-//pinta uno
+/**
+ * Renderiza un solo personaje en la lista.
+ * @param {Object} characterData - Datos del personaje a renderizar.
+ */
 
 function renderOne(characterData) {
   const imageUrl =
@@ -42,7 +46,10 @@ function renderOne(characterData) {
   }
 }
 
-//pintar todos
+/**
+ * Renderiza todos los personajes en la lista.
+ * @param {Array} data - Datos de los personajes a renderizar.
+ */
 
 function renderAll(data) {
   for (const character of characters) {
@@ -54,7 +61,10 @@ function renderAll(data) {
   }
 }
 
-//pintar un favorito
+/**
+ * Renderiza un favorito en la lista de favoritos.
+ * @param {Object} favoriteData - Datos del personaje favorito.
+ */
 
 function renderOneFavorite(favoriteData) {
   const imageUrl =
@@ -68,19 +78,9 @@ function renderOneFavorite(favoriteData) {
   </li>`;
 }
 
-// const btnRemove = document.querySelectorAll(".js_btnRemove");
-// btnRemove.addEventListener("click", (event) => {
-//   const clickedCharacterId = clickedCharacterLi.dataset.id;
-//   const favoritesCharacterIndex = charactersFavorites.findIndex(
-//     (onefavorite) => onefavorite._id === parseInt(clickedCharacterId)
-//   );
-//   if (favoritesCharacterIndex !== -1) {
-//     charactersFavorites.splice(favoritesCharacterIndex, 1);
-//     renderFavorites();
-//   }
-// });
-
-//pintar todos los favoritos
+/**
+ * Renderiza todos los favoritos en la lista de favoritos.
+ */
 
 function renderFavorites() {
   charactersListFavorites.innerHTML = "";
@@ -89,7 +89,11 @@ function renderFavorites() {
   }
 }
 
-// función para agregar favoritos
+/**
+ * Maneja el evento de hacer clic en un personaje, agregándolo o eliminándolo de la lista de favoritos.
+ * También actualiza los cambios en el almacenamiento local.
+ * @param {Event} event - El evento de clic.
+ */
 
 function handlefavorites(event) {
   const clickedCharacterLi = event.currentTarget;
