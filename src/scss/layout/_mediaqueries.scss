@@ -1,13 +1,11 @@
 @media (min-width: 768px) {
   .header {
-    height: 550px;
     display: flex;
 
     &__text {
       display: flex;
       text-align: center;
       font-size: 50px;
-      bottom: 260px;
     }
   }
 
@@ -27,10 +25,11 @@
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
   .header {
     &__text {
       font-size: 70px;
+      margin-bottom: auto;
     }
   }
 

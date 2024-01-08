@@ -20,7 +20,7 @@ const charactersFavorites = JSON.parse(localStorage.getItem("f")) || [];
 /**
  * Renderiza un solo personaje en la lista.
  * @param {Object} characterData - Datos del personaje a renderizar.
- */
+ * */
 
 function renderOne(characterData) {
   const imageUrl =
@@ -123,7 +123,11 @@ form.addEventListener("submit", (event) => {
   fetch(`//api.disneyapi.dev/character?name=${inputSearch.value}`)
     .then((response) => response.json())
     .then((data) => {
-      characters = data.data;
+      if (Array.isArray(data.data)) {
+        characters = data.data;
+      } else {
+        characters = [data.data];
+      }
       charactersList.innerHTML = "";
       renderAll();
     });
