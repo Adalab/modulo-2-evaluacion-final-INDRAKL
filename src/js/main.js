@@ -71,7 +71,7 @@ function renderOneFavorite(favoriteData) {
     favoriteData.imageUrl ||
     `https://via.placeholder.com/210x295/ff9e06/ff46e1/?text=Disney`;
   charactersListFavorites.innerHTML += `
-  <li class="favorites__li js_character">
+  <li class="favorites__li js_character" data-id="${favoriteData._id}">
     <img src="${imageUrl}" class="characters__img" alt="${favoriteData.name}">
     <h4 class="favorites__name">${favoriteData.name}</h4>
     <button class="favorites__btn js_btnRemove">Eliminar favorito</button>
