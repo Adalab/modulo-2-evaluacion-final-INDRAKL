@@ -1,5 +1,7 @@
 "use strict";
 
+import "./removefavorites.js";
+
 //QUERY SELECTORS
 
 const charactersList = document.querySelector(".js_charactersList");
@@ -8,7 +10,6 @@ const charactersListFavorites = document.querySelector(
 );
 const inputSearch = document.querySelector(".js_inputSearch");
 const form = document.querySelector(".js_form");
-const btnRemoveList = document.querySelectorAll(".js_btnRemove");
 
 //DATOS
 
@@ -51,7 +52,8 @@ function renderOne(characterData) {
  * @param {Array} data - Datos de los personajes a renderizar.
  */
 
-function renderAll(data) {
+function renderAll() {
+  charactersList.innerHTML = "";
   for (const character of characters) {
     renderOne(character);
   }
@@ -69,12 +71,12 @@ function renderAll(data) {
 function renderOneFavorite(favoriteData) {
   const imageUrl =
     favoriteData.imageUrl ||
-    `https://via.placeholder.com/210x295/ff9e06/ff46e1/?text=Disney`;
+    "https://via.placeholder.com/210x295/ff9e06/ff46e1/?text=Disney";
   charactersListFavorites.innerHTML += `
-  <li class="favorites__li js_character">
+  <li class="favorites__li">
     <img src="${imageUrl}" class="characters__img" alt="${favoriteData.name}">
     <h4 class="favorites__name">${favoriteData.name}</h4>
-    <button class="favorites__btn js_btnRemove">Eliminar favorito</button>
+    <button class="favorites__btn js_btnRemove" data-id="${favoriteData._id}">Eliminar favorito</button>
   </li>`;
 }
 
@@ -87,6 +89,11 @@ function renderFavorites() {
   for (const characterFavorite of charactersFavorites) {
     renderOneFavorite(characterFavorite);
   }
+  const btnRemove = document.querySelectorAll(".js_btnRemove");
+
+  btnRemove.forEach(function (btn) {
+    btn.addEventListener("click", handleRemove);
+  });
 }
 
 /**
