@@ -99,7 +99,7 @@ function renderFavorites() {
 /**
  * Maneja el evento de hacer clic en un personaje, agregándolo o eliminándolo de la lista de favoritos.
  * También actualiza los cambios en el almacenamiento local.
- * @param {Event} event - El evento de clic.
+ * @param {Event} event - El evento click.
  */
 
 function handlefavorites(event) {

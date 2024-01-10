@@ -1,5 +1,11 @@
 const btnRemove = document.querySelectorAll(".js_btnRemove");
 
+/**
+ * Elimina un personaje de la lista de favoritos al hacer click en un botón.
+ * Guarda las actualizaciones en el almacenamiento local.
+ * @param {event} event - El evento click.
+ * */
+
 function handleRemove(event) {
   event.preventDefault();
   const clickedRemoveBtn = event.currentTarget;
