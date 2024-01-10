@@ -27,7 +27,6 @@
 ¡Gracias por explorar _Encuentra tu Personaje de Disney_! Si encuentras problemas o tienes sugerencias de mejora no dudes en:
 
 - [Abrir un Issue](https://github.com/Adalab/modulo-2-evaluacion-final-INDRAKL/issues) en este repositorio.
-- Crear un Pull Request con mejoras.
 - Enviarme un mensaje a [indrakislo@gmail.com].
 
 Tu participación es bienvenida. ¡Espero que disfrutes de la experiencia!
