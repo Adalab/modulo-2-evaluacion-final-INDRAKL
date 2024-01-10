@@ -15,8 +15,8 @@ function handleRemove(event) {
   );
   if (favoritesCharacterIndex !== -1) {
     charactersFavorites.splice(favoritesCharacterIndex, 1);
+    localStorage.setItem("f", JSON.stringify(charactersFavorites));
     renderFavorites();
     renderAll();
   }
-  localStorage.setItem("f", JSON.stringify(charactersFavorites));
 }

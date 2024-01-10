@@ -40,7 +40,7 @@ function renderOne(characterData) {
     </li>`;
   } else {
     charactersList.innerHTML += `
-    <li class="favorites__li" data-id="${characterData._id}">
+    <li class="favorites__li js_character" data-id="${characterData._id}">
       <img src="${imageUrl}" class="characters__img" alt="${characterData.name}">
       <h4 class="characters__name">${characterData.name}</h4>
     </li>`;
@@ -60,6 +60,7 @@ function renderAll() {
   const allCharacters = document.querySelectorAll(".js_character");
   for (const oneCharacter of allCharacters) {
     oneCharacter.addEventListener("click", handlefavorites);
+    debugger;
   }
 }
 
@@ -99,7 +100,7 @@ function renderFavorites() {
 /**
  * Maneja el evento de hacer clic en un personaje, agregándolo o eliminándolo de la lista de favoritos.
  * También actualiza los cambios en el almacenamiento local.
- * @param {Event} event - El evento click.
+ * @param {Event} event - El evento  click.
  */
 
 function handlefavorites(event) {
