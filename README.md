@@ -12,6 +12,12 @@ Encuentra a tu personaje de Disney es una web en la que puedes encontrar a tu pe
 - Dichos favoritos se almacena en local storage. Así la usuaria podrá acceder a ellos aunque cierre la página.
 - Aquí se muestra una visión global de la web:
 
-![captura global web](images/visionglobal.png)
+![captura global web](./public/images/visiónglobal.png)
 
 ## TECNOLOGÍAS UTILIZADAS
+
+- **JavaScript**. El código principal del proyecto está escrito en JavaScript para la lógica de la aplicación.
+- **HTML**. La estructura básica de la página web está definida en HTML.
+- **CSS/SCSS**. El diseño y estilo de la aplicación se ha implementado utilizando hojas de estilo en cascada.
+- **Fetch API**. Se utiliza para realizar solicitudes a la API de Disney para obtener información sobre los personajes.
+- **LocalStorage**. La aplicación utiliza el almacenamiento local del navegador para mantener la lista de personajes favoritos incluso después de recargar la página.
